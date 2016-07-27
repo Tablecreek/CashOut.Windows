@@ -1,0 +1,87 @@
+﻿<UserControl
+   x:Class="Display.Controls.NumberPicker"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   xmlns:local="using:Display.Controls"
+   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   mc:Ignorable="d"
+   d:DesignHeight="300"
+   d:DesignWidth="400">
+
+   <StackPanel>
+
+      <TextBlock
+         Height="28"
+         Foreground="Black"
+         VerticalAlignment="Bottom"
+         Text="{x:Bind Header, Mode=OneWay}" />
+
+      <Grid
+         Height="32"
+         HorizontalAlignment="Stretch"
+         Background="White">
+
+         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="50" />
+         </Grid.ColumnDefinitions>
+
+         <RepeatButton
+            Name="DecreaseButton"
+            Interval="100"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            BorderThickness="0,0,2,0"
+            Grid.Column="0"
+            Click="DecreaseButton_OnClick">
+
+            <TextBlock
+               FontSize="18"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Width="Auto"
+               Height="Auto">
+               -
+            </TextBlock>
+         </RepeatButton>
+
+         <Border
+            Grid.Column="1"
+            BorderThickness="0,2,0,2">
+
+            <TextBox
+               TextChanging="Content_OnTextChanging"
+               InputScope="Number"
+               BorderThickness="0"
+               x:Name="Content"
+               FontSize="18"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch"
+               Height="Auto"
+               Text="0" />
+
+         </Border>
+
+         <RepeatButton
+            Name="IncreaseButton"
+            Interval="100"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            BorderThickness="2,0,0,0"
+            Grid.Column="2"
+            Click="IncreaseButton_OnClick">
+
+            <TextBlock
+               FontSize="18"
+               TextAlignment="Center"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Top"
+               Height="Auto">
+               +
+            </TextBlock>
+         </RepeatButton>
+      </Grid>
+   </StackPanel>
+</UserControl>
